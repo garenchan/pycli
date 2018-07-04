@@ -33,25 +33,36 @@ def get_package_version():
             return m.groups()[0]
 
 
+def get_long_description():
+    """return package's long description"""
+    base = os.path.abspath(os.path.dirname(__file__))
+    with open(os.path.join(base, "README.md"),
+              mode="rt",
+              encoding="utf-8") as readme:
+        return readme.read()
+
+
 if __name__ == "__main__":
     setup(
-        name="pycli",
+        name="py3cli",
         version=get_package_version(),
         packages=["pycli", "pycli.tests"],
         description="A Tiny Python CLI Library Based On argparse",
+        long_description=get_long_description(),
+        long_description_content_type="text/markdown",
         author="garenchan",
         author_email="1412950785@qq.com",
         url="https://github.com/garenchan/pycli",
         license="BSD",
         classifiers=[
             "License :: OSI Approved :: BSD License",
-            "Programming Language:: Python:: 3",
-            "Programming Language:: Python:: 3.3",
-            "Programming Language:: Python:: 3.4",
-            "Programming Language:: Python:: 3.5",
-            "Programming Language:: Python:: 3.6",
-            "Programming Language:: Python:: Implementation:: CPython",
-            "Programming Language:: Python:: Implementation:: PyPy",
+            "Programming Language :: Python :: 3",
+            "Programming Language :: Python :: 3.3",
+            "Programming Language :: Python :: 3.4",
+            "Programming Language :: Python :: 3.5",
+            "Programming Language :: Python :: 3.6",
+            "Programming Language :: Python :: Implementation :: CPython",
+            "Programming Language :: Python :: Implementation :: PyPy",
             "Operating System :: OS Independent",
         ],
     )
