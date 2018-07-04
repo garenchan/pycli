@@ -145,6 +145,29 @@ $ python demo.py init --conf-files a.ini --conf-files b.ini
 ['a.ini', 'b.ini']
 ```
 
+## Bool Argument
+
+Sometimes we need a argument as a switch, we can speficy its type as bool and give it a default value True/False.
+
+If we pass it when run, its value will be switched:
+
+```
+# demo.py
+import queue
+from pycli import CLI
+
+cli = CLI(prog="app", version="v1.0.0")
+q = queue.Queue()
+
+@cli.command
+def get(block: bool = True):
+    """get a item"""
+
+    return q.get(block)
+
+print(cli.run())
+```
+
 ## Custom Subcommand
 
 By default, PyCLI use function name or object's class name as subcommand title, and use docstring as subcommand description.

@@ -77,10 +77,16 @@ class CLI(argparse.ArgumentParser):
             _sentinel = object()
 
             def add_subcommand_arguments(arg, default, annotation):
-                action_name = "append" \
-                    if annotation and annotation not in [bytes, str] and \
-                    issubclass(annotation, collections.Iterable) else "store"
-
+                action_name = "store"
+                if annotation:
+                    if annotation not in [bytes, str] and \
+                            issubclass(annotation, collections.Iterable):
+                        action_name = "append"
+                    elif annotation is bool:
+                        if default is _sentinel or not isinstance(default, bool):
+                            message = "bool argument must has a default value"
+                            raise argparse.ArgumentError(None, message)
+                        action_name = "store_false" if default else "store_true"
                 # NOTE: if argument has default value or append action,
                 # make it optional.
                 name = self.prefix_chars[0] * 2 + arg.replace('_', '-') \

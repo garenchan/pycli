@@ -47,6 +47,16 @@ class TestAdvanced(unittest.TestCase):
         ret = cli.run(["multi", "", "--b", "1", "--b", "2"])
         self.assertEqual(ret, ["1", "2"])
 
+    def test_bool_argument(self):
+        cli = CLI()
+
+        @cli.command
+        def close(switch: bool = True):
+            return switch
+
+        ret = cli.run(["close", "--switch"])
+        self.assertIs(ret, False)
+
     def test_argparse_compatible(self):
         cli = CLI()
 
