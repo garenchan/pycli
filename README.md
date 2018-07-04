@@ -5,6 +5,17 @@ If you use argparse to parse arguments, and you are very upset about adding subc
 
 [![Build Status](https://api.travis-ci.org/garenchan/pycli.svg?branch=master)](https://travis-ci.org/garenchan/pycli)
 
+
+## Installation
+
+PyPI version:
+
+    $ pip install py3cli
+
+Development version:
+
+    $ pip install https://github.com/garenchan/pycli/zipball/master
+
 ## Demo
 
 Here is the simplest demo for pycli.
