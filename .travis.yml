@@ -1,16 +1,16 @@
-#dist: trusty
+dist: trusty
 
 # Use containers instead of full VMs for faster startup.
-#sudo: false
+sudo: false
 
-#matrix:
-#    fast_finish: true
+matrix:
+    fast_finish: true
 
 language: python
 
 python:
     #- "3.0"
-    #- "3.3"
+    - "3.3"
     - "3.4"
     #- "3.5"
     #- "3.6"
