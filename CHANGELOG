@@ -1,0 +1,13 @@
+c7c094f (HEAD -> master, origin/master, origin/HEAD) add installation into readme.md
+4582dd7 add long description
+0b10a06 add bool argument
+fa59187 add tutorials
+6500c6f add ci support for python 3.5 and 3.6
+31a4fb4 fix testcase bug
+670afa4 add build svg picture
+bf072bd ci for python3.3
+b5030cf modify travis setting
+a3ed181 add travis ci support
+8cc364d add pack support
+15ed976 init pycli project
+702206d Initial commit
