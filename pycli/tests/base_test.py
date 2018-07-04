@@ -22,12 +22,15 @@ class TestBase(unittest.TestCase):
         self.assertEqual(mock_stdout.getvalue(), "test")
 
     @mock.patch("sys.stdout", new_callable=io.StringIO)
-    def test_version(self, mock_stdout):
+    @mock.patch("sys.stderr", new_callable=io.StringIO)
+    def test_version(self, mock_stdout, mock_stderr):
         cli = CLI(prog="app", version="v1.0.0")
 
         with self.assertRaises(SystemExit):
             cli.run(["-v"])
-        self.assertEqual(mock_stdout.getvalue(), "app v1.0.0\n")
+
+        self.assertIn("app v1.0.0\n", [mock_stdout.getvalue(),
+                                       mock_stderr.getvalue()])
 
     def test_duplicate_error(self):
         cli = CLI()
