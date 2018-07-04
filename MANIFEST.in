@@ -1,0 +1,8 @@
+include AUTHORS
+include CHANGES
+include LICENSE
+include MANIFEST.in
+include README.md
+recursive-include docs *
+recursive-include pycli *
+recursive-include requirements *.txt
