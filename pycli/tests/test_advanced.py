@@ -5,7 +5,7 @@ import unittest
 from pycli import CLI
 
 
-class TestAdvance(unittest.TestCase):
+class TestAdvanced(unittest.TestCase):
 
     def test_arguments(self):
         cli = CLI()
